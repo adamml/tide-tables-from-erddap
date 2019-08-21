@@ -1,6 +1,6 @@
 function processTides(config){
-  document.getElementById("headLocation").value = document.getElementById("headLocation").value + " " + concatLocation(config);
-  var currentTime = newDate();
+  document.getElementById("headLocation").innerText = document.getElementById("headLocation").innerText + " " + concatLocation(config);
+  var currentTime = new Date();
 }
 
 function concatLocation(config){
