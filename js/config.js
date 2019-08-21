@@ -9,5 +9,19 @@ const config={
     "weekday": "long",
     "month": "long",
     "day": "numeric"
+  },
+  "erddapServer": {
+    "baseURL": "https://erddap.marine.ie",
+    "dataset": "IMI-TidePrediction_epa",
+    "isTabledap": true,
+    "location":{
+      "field": "stationID",
+      "value": "IEWEBWC170_0000_0200_MODELLED"
+     },
+    "returnFields":[
+      "time",
+      "stationID",
+      "seasurfaceHeight"
+    ]
   }
 }
