@@ -4,7 +4,7 @@ const config={
     "countyOrState": "Galway",
     "country": "Ireland",
     "locale": "en-ie"
-  }
+  },
   "dateOptions": {
     "weekday": "long",
     "month": "long",
