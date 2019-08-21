@@ -5,13 +5,17 @@
     <title>Tide Tables from Erddap</title>
     <script src="js/moment.min.js"></script>
     <script src="js/config.js"></script>
+    <script src="js/processTides.js"></script>
     <base href="{{ site.baseurl }}/">
   </head>
 
   <body>
-    <h2>Tide Times for </h2>
+    <h2 id="headLocation">Tide Times for</h2>
     <h3 id="dateHeading"></h3>
     <div id="tideTable">
+    <script>
+      processTides();
+    </script>
     </div>
   </body>
 
