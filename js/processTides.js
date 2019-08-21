@@ -3,6 +3,7 @@
   document.getElementById("headLocation").innerText = document.getElementById("headLocation").innerText + " " + concatLocation(config);
   document.getElementById("title").innerText = concatLocation(config) + " | " + document.getElementById("title").innerText;
   var currentTime = new Date();
+  document.getElementById("dateHeading").innerText = currentTime.localeDateString(config.location.locale,config.dateOptions);
   
   function concatLocation(config){
     return config.location.town + ", " + config.location.countyOrState + ", " + config.location.country;
