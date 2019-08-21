@@ -17,7 +17,9 @@
       tableOrGrid = "griddap";
     }
     
-    return config.erddapServer.baseURL + "/" + tableOrGrid + "/" + config.erddapServer.dataset;
+    var getVariables;
+    
+    return config.erddapServer.baseURL + "/" + tableOrGrid + "/" + config.erddapServer.dataset + ".jsonlKVP?";
   }
   
 }(config));
