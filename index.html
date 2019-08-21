@@ -2,18 +2,18 @@
 <html>
 
   <head>
+    <base href="{{ site.baseurl }}/">
     <title>Tide Tables from Erddap</title>
     <script src="js/moment.min.js"></script>
     <script src="js/config.js"></script>
-    
-    <base href="{{ site.baseurl }}/">
+    <script src="js/processTides.js"></script>
   </head>
 
   <body>
     <h2 id="headLocation">Tide Times for</h2>
     <h3 id="dateHeading"></h3>
     <div id="tideTable">
-    <script src="js/processTides.js"></script>
+    
     </div>
   </body>
 
