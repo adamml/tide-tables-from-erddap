@@ -17,7 +17,7 @@
       tableOrGrid = "griddap";
     }
     
-    return config.erddapServer.baseURL + "/" + tableOrGrid;
+    return config.erddapServer.baseURL + "/" + tableOrGrid + "/" + config.erddapServer.dataset;
   }
   
 }(config));
