@@ -23,5 +23,6 @@ const config={
       "stationID",
       "seasurfaceHeight"
     ]
-  }
+  },
+  "acknowledgment": "Data supplied by the [Marine Institute](https://www.marine.ie), Ireland."
 }
