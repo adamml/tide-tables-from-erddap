@@ -1,4 +1,4 @@
-function processTides(config){
+(function processTides(config){
   moment.locale(config.locale);
   document.getElementById("headLocation").innerText = document.getElementById("headLocation").innerText + " " + concatLocation(config);
   document.getElementById("title").innerText = concatLocation(config) + " | " + document.getElementById("title").innerText;
@@ -7,4 +7,4 @@ function processTides(config){
   function concatLocation(config){
     return config.location.town + ", " + config.location.countyOrState + ", " + config.location.country;
   }
-}
+}(config));
