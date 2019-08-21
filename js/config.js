@@ -5,4 +5,9 @@ const config={
     "country": "Ireland",
     "locale": "en-ie"
   }
+  "dateOptions": {
+    "weekday": "long",
+    "month": "long",
+    "day": "numeric"
+  }
 }
