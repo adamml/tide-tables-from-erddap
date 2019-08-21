@@ -11,7 +11,7 @@ const config={
     "day": "numeric"
   },
   "erddapServer": {
-    "baseURL": "https://erddap.marine.ie",
+    "baseURL": "https://erddap.marine.ie/erddap",
     "dataset": "IMI-TidePrediction_epa",
     "isTabledap": true,
     "location":{
