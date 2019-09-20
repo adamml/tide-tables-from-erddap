@@ -6,15 +6,23 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
     <link href="css/tides.css" rel="stylesheet" />
     <script src="js/moment.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/showdown.min.js"></script>
     <script src="js/config.js"></script>
   </head>
 
   <body>
     <h2 id="headLocation">Tide Times for</h2>
     <h3 id="dateHeading"></h3>
-    <div id="tideTable">
-    
+    <div id="tideTable" class="tideTable">
+		<div class="tideTableHeader">
+			<div class="tideTime">Time</div><div class="tideHeight">Height</div>
+		</div>
     </div>
+	<div id="footer" class="footer">
+		<p id="datum"></p>
+		<div id ="acknowledgement"></div>
+	</div>
     <script src="js/processTides.js"></script>
   </body>
 

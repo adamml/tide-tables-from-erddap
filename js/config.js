@@ -10,6 +10,7 @@ const config={
     "month": "long",
     "day": "numeric"
   },
+  "datum": "Sea surface height relative to modelled mean (average) sea level.",
   "erddapServer": {
     "baseURL": "https://erddap.marine.ie/erddap",
     "dataset": "IMI-TidePrediction_epa",
@@ -18,11 +19,10 @@ const config={
       "field": "stationID",
       "value": "IEWEBWC170_0000_0200_MODELLED"
      },
-    "returnFields":[
-      "time",
-      "stationID",
-      "seasurfaceHeight"
-    ]
+    "returnFields":{
+      "time": "time",
+      "height": "sea_surface_height"
+    }
   },
-  "acknowledgment": "Data supplied by the [Marine Institute](https://www.marine.ie), Ireland."
+  "acknowledgement": "Data supplied by the [Marine Institute](https://www.marine.ie), Ireland."
 }

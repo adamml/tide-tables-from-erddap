@@ -1,3 +1,35 @@
 body{
   font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
+.odd, .even, .footer{
+	clear:both;
+}
+
+.odd, .even, .tideTableHeader {
+	width: 201px;
+	margin: 0 auto;
+}
+
+.tideTime, .tideHeight{
+	float:left;
+	width:100px;
+}
+
+.footer{
+	font-size: smaller;
+	padding-top: 12px;
+}
+
+.footer p{
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+
+.tideTable{}
+
+.tideTableHeader{
+	font-weight:bold;
+	text-align:center;
 }
