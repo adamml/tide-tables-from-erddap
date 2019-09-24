@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
 
   <head>
     <title id="title">Tide Tables from Erddap</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Tide Times for" />
+	<meta property="og:url" content="https://adamml.github.io/tide-tables-from-erddap/" /> 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/tides.css" rel="stylesheet" />
     <script src="js/moment.min.js"></script>
 	<script src="js/jquery.min.js"></script>
@@ -12,7 +16,7 @@
 
   <body>
     <h2 id="headLocation">Tide Times for</h2>
-    <h3 id="dateHeading"></h3>
+    <h3 id="dateHeading">Today's Date</h3>
     <div id="tideTable" class="tideTable">
 		<div class="tideTableHeader">
 			<div class="tideTime">Time</div><div class="tideHeight">Height</div>
@@ -20,7 +24,12 @@
     </div>
 	<div id="footer" class="footer">
 		<p id="datum"></p>
-		<div id ="acknowledgement"></div>
+		<div id="acknowledgement"></div>
+		<div id="poweredBy"><p>Powered by 
+			<a href="https://digitalocean.ie" target="_blank">Ireland's Digital Ocean</a>
+			<i class="material-icons">open_in_new</i>.
+			<img src="img/IDO_Banner_Dark_Desktop.png" alt="Ireland's Digital Ocean logo"/>
+		</p></div>
 	</div>
     <script src="js/processTides.js"></script>
   </body>

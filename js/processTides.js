@@ -13,7 +13,7 @@
 	new Date().toLocaleDateString(config.location.locale,config.dateOptions);
   document.getElementById("acknowledgement").innerHTML = 
 	(config.acknowledgement.replace(/[\[]{1}([^\]]+)[\]]{1}[\(]{1}([^\)\"]+)(\"(.+)\")?[\)]{1}/g, 
-	'<a href="$2" title="$4">$1</a>'));
+	'<a href="$2" target="_blank" title="$4">$1</a> <i class="material-icons">open_in_new</i>'));
   document.getElementById("datum").innerText = 
 	config.datum;
   
@@ -52,37 +52,40 @@
 				if(index > 0){
 					if(index > 1 &&
 						Math.sign(item[1] - data.table.rows[index-1][1]) != lastTide && 
-						lastTide != 0){
+						item[1] - data.table.rows[index-1][1] != 0){
+							console.log(item[1] - data.table.rows[index-1][1]);
 							if(moment().isDST()){
-								if((item[0].search(today) > -1 &&
-									parseInt(item[0].substring(11,13)) < 23) ||
-									(item[0].search(yesterday) > -1) &&
-									parseInt(item[0].substring(11,13)) > 22) {
-										time = parseInt(item[0].substring(11,13))+1;
+								if((data.table.rows[index-1][0].search(today) > -1 &&
+									parseInt(data.table.rows[index-1][0].substring(11,13)) < 23) ||
+									(data.table.rows[index-1][0].search(yesterday) > -1) &&
+									parseInt(data.table.rows[index-1][0].substring(11,13)) > 22) {
+										time = parseInt(data.table.rows[index-1][0].substring(11,13))+1;
 										document.getElementById("tideTable").innerHTML = 
 											document.getElementById("tideTable").innerHTML +
 											'<div class="' + oddEven + '">' +
 											'<div class="tideTime">' + 
 											('00' + time.toString()).slice(-2) + 
-											':' + item[0].substring(14,16) + '</div>' +
-											'<div class="tideHeight">' + item[1] + '</div>' 
+											':' + data.table.rows[index-1][0].substring(14,16) + '</div>' +
+											'<div class="tideHeight">' + data.table.rows[index-1][1] + '</div>' 
 											'</div>';
 										if(oddEven == 'odd'){oddEven = 'even'; } else {oddEven = 'odd'; }
 								}
 							}
 							else{
-								if(item[0].search(today) > -1){
+								if(data.table.rows[index-1][0].search(today) > -1){
 									document.getElementById("tideTable").innerHTML = 
 										document.getElementById("tideTable").innerHTML +
 										'<div class="' + oddEven + '">' +
-										'<div class="tideTime">' + item[0].substring(11,16) + '</div>' +
-										'<div class="tideHeight">' + item[1] + '</div>' 
+										'<div class="tideTime">' + data.table.rows[index-1][0].substring(11,16) + '</div>' +
+										'<div class="tideHeight">' + data.table.rows[index-1][1] + '</div>' 
 										'</div>';
 									if(oddEven == 'odd'){oddEven = 'even'; } else {oddEven = 'odd'; }
 								}
 							}
 					}
-					lastTide = Math.sign(item[1] - data.table.rows[index-1][1]);
+					if(item[1] - data.table.rows[index-1][1] != 0){
+						lastTide = Math.sign(item[1] - data.table.rows[index-1][1]);
+					}
 				}
 			});
 		});

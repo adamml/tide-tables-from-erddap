@@ -1,7 +1,7 @@
 body{
   font-family: 'Open Sans', sans-serif;
   text-align: center;
-  font-size:1.2em;
+  font-size:1em;
 }
 
 .odd, .even, .footer{
@@ -32,7 +32,21 @@ body{
 	margin-bottom: 6px;
 }
 
+.footer i.material-icons{
+	font-size: medium;
+}
+
 .tideTableHeader{
 	font-weight:bold;
 	text-align:center;
+}
+
+i.material-icons, .footer img{
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+.footer img{
+	width: 175px;
 }
