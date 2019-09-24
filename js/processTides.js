@@ -4,8 +4,6 @@
 (function processTides(config){
   moment.locale(config.locale);
   
-  var converter = new showdown.Converter();
-  
   document.getElementById("headLocation").innerText = 
 	(document.getElementById("headLocation").innerText + " " + 
 	concatLocation(config));
@@ -14,7 +12,8 @@
   document.getElementById("dateHeading").innerText = 
 	new Date().toLocaleDateString(config.location.locale,config.dateOptions);
   document.getElementById("acknowledgement").innerHTML = 
-	converter.makeHtml(config.acknowledgement);
+	(config.acknowledgement.replace(/[\[]{1}([^\]]+)[\]]{1}[\(]{1}([^\)\"]+)(\"(.+)\")?[\)]{1}/g, 
+	'<a href="$2" title="$4">$1</a>'));
   document.getElementById("datum").innerText = 
 	config.datum;
   
@@ -68,6 +67,7 @@
 											':' + item[0].substring(14,16) + '</div>' +
 											'<div class="tideHeight">' + item[1] + '</div>' 
 											'</div>';
+										if(oddEven == 'odd'){oddEven = 'even'; } else {oddEven = 'odd'; }
 								}
 							}
 							else{
@@ -78,6 +78,7 @@
 										'<div class="tideTime">' + item[0].substring(11,16) + '</div>' +
 										'<div class="tideHeight">' + item[1] + '</div>' 
 										'</div>';
+									if(oddEven == 'odd'){oddEven = 'even'; } else {oddEven = 'odd'; }
 								}
 							}
 					}

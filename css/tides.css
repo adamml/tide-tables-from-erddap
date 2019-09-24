@@ -1,6 +1,7 @@
 body{
   font-family: 'Open Sans', sans-serif;
   text-align: center;
+  font-size:1.2em;
 }
 
 .odd, .even, .footer{
@@ -10,6 +11,10 @@ body{
 .odd, .even, .tideTableHeader {
 	width: 201px;
 	margin: 0 auto;
+}
+
+.odd div{
+	background: #DCFAFA;
 }
 
 .tideTime, .tideHeight{
@@ -26,8 +31,6 @@ body{
 	margin-top: 6px;
 	margin-bottom: 6px;
 }
-
-.tideTable{}
 
 .tideTableHeader{
 	font-weight:bold;

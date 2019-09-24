@@ -24,5 +24,10 @@ const config={
       "height": "sea_surface_height"
     }
   },
-  "acknowledgement": "Data supplied by the [Marine Institute](https://www.marine.ie), Ireland."
+  "acknowledgement": "Data supplied by the [Marine Institute](https://www.marine.ie), Ireland.",
+  "optional": {
+	  "temperature": {
+		  "title": "Water temperature at Spiddal"
+	  }
+  }
 }
