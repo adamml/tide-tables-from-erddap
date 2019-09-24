@@ -48,12 +48,18 @@
 				("00" + (moment().utc().subtract(1, 'days').month()+1)).slice(-2) + 
 				"-" + moment().utc().subtract(1, 'days').date();
 			var oddEven = "odd";
+			var materialArrow;
 			data.table.rows.forEach(function(item, index) {
 				if(index > 0){
 					if(index > 1 &&
 						Math.sign(item[1] - data.table.rows[index-1][1]) != lastTide && 
 						item[1] - data.table.rows[index-1][1] != 0){
-							console.log(item[1] - data.table.rows[index-1][1]);
+							console.log(lastTide);
+							if(lastTide == 1){
+								materialArrow = '<i class="material-icons">arrow_upward</i>'
+							} else {
+								materialArrow = '<i class="material-icons">arrow_downward</i>'
+							}
 							if(moment().isDST()){
 								if((data.table.rows[index-1][0].search(today) > -1 &&
 									parseInt(data.table.rows[index-1][0].substring(11,13)) < 23) ||
@@ -63,10 +69,11 @@
 										document.getElementById("tideTable").innerHTML = 
 											document.getElementById("tideTable").innerHTML +
 											'<div class="' + oddEven + '">' +
+											'<div class="tideArrow">' + materialArrow + '</div>' +
 											'<div class="tideTime">' + 
 											('00' + time.toString()).slice(-2) + 
 											':' + data.table.rows[index-1][0].substring(14,16) + '</div>' +
-											'<div class="tideHeight">' + data.table.rows[index-1][1] + '</div>' 
+											'<div class="tideHeight">' + data.table.rows[index-1][1] + '</div>' +
 											'</div>';
 										if(oddEven == 'odd'){oddEven = 'even'; } else {oddEven = 'odd'; }
 								}

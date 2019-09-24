@@ -9,7 +9,7 @@ body{
 }
 
 .odd, .even, .tideTableHeader {
-	width: 201px;
+	width: 231px;
 	margin: 0 auto;
 }
 
@@ -20,6 +20,11 @@ body{
 .tideTime, .tideHeight{
 	float:left;
 	width:100px;
+}
+
+.tideArrow{
+	float:left;
+	width: 30px;
 }
 
 .footer{
