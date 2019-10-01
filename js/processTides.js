@@ -1,5 +1,4 @@
-// TODO: 	Use second time if duplicate tide height
-//			Add temperature data
+// TODO: Add temperature data
 
 (function processTides(config){
   moment.locale(config.locale);
@@ -43,10 +42,10 @@
 			var tideTable;
 			var lastTide;
 			var today = moment().utc().year() + "-" + 
-				("00" + (moment().utc().month()+1)).slice(-2) + "-" + moment().utc().date();
+				("00" + (moment().utc().month()+1)).slice(-2) + "-" + ("00" + (moment().utc().date())).slice(-2);
 			var yesterday = moment().utc().subtract(1, 'days').year() + "-" + 
 				("00" + (moment().utc().subtract(1, 'days').month()+1)).slice(-2) + 
-				"-" + moment().utc().subtract(1, 'days').date();
+				"-" + ("00" + moment().utc().subtract(1, 'days').date()).slice(-2);
 			var oddEven = "odd";
 			var materialArrow;
 			data.table.rows.forEach(function(item, index) {
@@ -54,7 +53,6 @@
 					if(index > 1 &&
 						Math.sign(item[1] - data.table.rows[index-1][1]) != lastTide && 
 						item[1] - data.table.rows[index-1][1] != 0){
-							console.log(lastTide);
 							if(lastTide == 1){
 								materialArrow = '<i class="material-icons">arrow_upward</i>'
 							} else {
@@ -65,6 +63,7 @@
 									parseInt(data.table.rows[index-1][0].substring(11,13)) < 23) ||
 									(data.table.rows[index-1][0].search(yesterday) > -1) &&
 									parseInt(data.table.rows[index-1][0].substring(11,13)) > 22) {
+										
 										time = parseInt(data.table.rows[index-1][0].substring(11,13))+1;
 										document.getElementById("tideTable").innerHTML = 
 											document.getElementById("tideTable").innerHTML +
