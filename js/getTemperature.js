@@ -1,0 +1,3 @@
+(function getTemperature(config){
+	
+}(config));
