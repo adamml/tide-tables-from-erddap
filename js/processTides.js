@@ -82,6 +82,7 @@
 									document.getElementById("tideTable").innerHTML = 
 										document.getElementById("tideTable").innerHTML +
 										'<div class="' + oddEven + '">' +
+										'<div class="tideArrow">' + materialArrow + '</div>' +
 										'<div class="tideTime">' + data.table.rows[index-1][0].substring(11,16) + '</div>' +
 										'<div class="tideHeight">' + data.table.rows[index-1][1] + '</div>' 
 										'</div>';
