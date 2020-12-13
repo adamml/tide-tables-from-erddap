@@ -11,6 +11,8 @@
     <link href="css/tides.css" rel="stylesheet" />
     <script src="js/moment.min.js"></script><!-- Merge with config and mqtt files -->
     <script src="js/config.js"></script>	<!-- Minify and merge -->
+	<script src="js/d3.min.js"></script> <!-- Merge -->
+	<script src="js/suncalc.js"></script> <!-- Minfiy and merge -->
 	<!-- <script src="js/mqtt.min.js"></script>  <!-- Merge -->
   </head>
 
@@ -19,9 +21,10 @@
 	<h3 id="dateHeading">Today's Date</h3>
 	<div id="tideTable" class="tideTable">
 		<div class="tideTableHeader">
-			<div class="tideArrow">&nbsp;</div><div class="tideTime">Time</div><div class="tideHeight">Height</div>
+			<div class="tideArrow">&nbsp;</div><div class="tideTime">Time</div><div class="tideHeight">Height</div><divclass="break">&nbsp;</div><div class="sunParameter">&nbsp;</div><div class="sunValue">&nbsp;</div>
 		</div>
 	</div>
+	<div id="plotTides"></div>
 	<div id="footer" class="footer">
 		<p id="datum"></p>
 		<div id="acknowledgement"></div>

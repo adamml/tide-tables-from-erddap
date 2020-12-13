@@ -1,4 +1,4 @@
-@media (min-width: 340px){
+@media (min-width: 480px){
 	body {
 		padding-top: 5%;
 	}
@@ -15,7 +15,7 @@ body{
 }
 
 .odd, .even, .tideTableHeader {
-	width: 231px;
+	width: 462px;
 	margin: 0 auto;
 }
 
@@ -23,12 +23,12 @@ body{
 	background: #DCFAFA;
 }
 
-.tideTime, .tideHeight{
+.tideTime, .tideHeight, .sunParameter, .sunValue{
 	float:left;
 	width:100px;
 }
 
-.tideArrow{
+.tideArrow, .break{
 	float:left;
 	width: 30px;
 }
@@ -60,4 +60,17 @@ i.material-icons, .footer img{
 
 .footer img{
 	width: 175px;
+}
+
+svg > path
+{
+    fill: none;
+    stroke: #1874bb;
+	stroke-width: 5;
+}
+
+div#plottides {
+	margin-top: 20px;
+	clear: both;
+	float:left;
 }
