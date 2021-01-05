@@ -1,8 +1,5 @@
 const config={
   "location": {
-    "town": "Salthill",
-    "countyOrState": "Galway",
-    "country": "Ireland",
     "locale": "en-ie"
   },
   "dateOptions": {
@@ -16,15 +13,14 @@ const config={
     "dataset": "IMI-TidePrediction_epa",
     "isTabledap": true,
     "location":{
-      "field": "stationID",
-      "value": "IEWEBWC170_0000_0200_MODELLED"
+      "field": "stationID"
      },
     "returnFields":{
       "time": "time",
       "height": "sea_surface_height"
     }
   },
-  "acknowledgement": "Data supplied by the [Marine Institute](https://www.marine.ie), Ireland.",
+  "acknowledgement": "Data supplied by the [Environmental Protection Agency](https://www.epa.ie/), Ireland and the [Marine Institute](https://www.marine.ie), Ireland.",
   "optional": {
 	  "temperature": {
 		  "title": "Water temperature at Spiddal"

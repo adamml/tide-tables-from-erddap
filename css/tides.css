@@ -10,7 +10,7 @@ body{
   font-size:1em;
 }
 
-.odd, .even, .footer{
+.odd, .even, .footer, .waterQuality, .divBreak {
 	clear:both;
 }
 
@@ -36,6 +36,10 @@ body{
 .footer{
 	font-size: smaller;
 	padding-top: 12px;
+}
+
+.waterQuality, .divBreak{
+	padding-top: 8px;
 }
 
 .footer p{
@@ -69,7 +73,7 @@ svg > path
 	stroke-width: 5;
 }
 
-div#plottides {
+.plottides {
 	margin-top: 20px;
 	clear: both;
 	float:left;
