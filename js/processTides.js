@@ -184,6 +184,14 @@
 		width = 600 - margin.left - margin.right,
 		height = 150 - margin.top - margin.bottom;
 	
+	if(console.log(window.innerWidth) < width){
+		width = window.innerWidth - margin.left - margin.right;
+	}
+	
+	if(width < 150){
+		width = 150;
+	}
+	
 	/* Trim the data array to only display today's tides */
 	
 	var startTime = new String();
