@@ -9,16 +9,17 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/tides.css" rel="stylesheet" />
-    <script src="js/moment.min.js"></script><!-- Merge with config and mqtt files -->
-    <script src="js/config.js"></script>	<!-- Minify and merge -->
+	<script src="js/beaches.js"></script> <!-- Merge -->
+    <script src="js/moment.min.js"></script><!-- Merge  -->
+    <script src="js/config.js"></script>	<!-- Deprecate and include in beaches.js -->
 	<script src="js/d3.min.js"></script> <!-- Merge -->
 	<script src="js/suncalc.js"></script> <!-- Minfiy and merge -->
-	<script src="js/beaches.js"></script> <!-- Merge -->
   </head>
 
   <body>
-	<h2 id="headLocation">Tide Times for</h2>
+	<h2 id="headLocation"></h2>
 	<h3 id="dateHeading">Today's Date</h3>
+	<div id="weatherWarnings"></div>
 	<div id="tideTable" class="tideTable">
 		<div class="tideTableHeader">
 			<div class="tideArrow">&nbsp;</div><div class="tideTime">Time</div><div class="tideHeight">Height</div><div class="break">&nbsp;</div><div class="sunParameter">&nbsp;</div><div class="sunValue">&nbsp;</div>
@@ -63,9 +64,9 @@
 	
 	<div class="waterQuality">
 		<h3>Latest water quality information<h3>
-		<div id="waterQualityValue"></div>
-		<div id="waterQualityLastUpdated"></div>
 	</div>
+	<div class="waterQualityValue" id="waterQualityValue"></div>
+	<div class="waterQualityLastUpdated" id="waterQualityLastUpdated"></div>
 	
 	<div id="footer" class="footer">
 		<p id="datum"></p>
@@ -79,7 +80,6 @@
 		</div>
 	</div>
 	<script src="js/processTides.js"></script>
-	<script src="js/getTemperature.js"></script>
   </body>
 
 </html>

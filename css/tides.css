@@ -1,13 +1,41 @@
-@media (min-width: 480px){
+@media (min-width: 440px){
 	body {
 		padding-top: 5%;
+		padding-left:5%;
+		padding-right:5%;
 	}
+	
+	.plottides {
+		margin-top: 20px;
+		clear: both;
+		float:left;
+		max-width: 90%;
+	}
+}
+
+.yellow{
+	color: #F6BE00;
+}
+
+.orange{
+	color: #FFA500;
+}
+
+.red{
+	color: #FF0000;
 }
 
 body{
   font-family: 'Open Sans', sans-serif;
   text-align: center;
   font-size:1em;
+  padding-left:10%;
+  padding-right:10%;
+}
+
+.tideTable{
+	padding-top: 15px;
+	padding-bottom: 15px;
 }
 
 .odd, .even, .footer, .waterQuality, .divBreak {
@@ -26,6 +54,10 @@ body{
 .tideTime, .tideHeight, .sunParameter, .sunValue{
 	float:left;
 	width:100px;
+}
+
+.break{
+	background: #ffffff
 }
 
 .tideArrow, .break{

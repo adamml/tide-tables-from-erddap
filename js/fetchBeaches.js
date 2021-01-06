@@ -14,6 +14,36 @@ const epaApiBaseUrl = 'https://api.beaches.ie/odata/beaches';
 const todayDateString = new Date().toISOString().slice(0,10);
 
 // TODO: Add in getting tidal ranges for each beach
+// TODO: Map FIPS code to county beach for weather warnings
+
+const fips = {
+	Carlow: 'EI01',
+	Cavan: 'EI02',
+	Clare: 'EI03',
+	Cork: 'EI04',
+	Donegal: 'EI06',
+	Dublin: 'EI07',
+	Galway: 'EI10',
+	Kerry: 'EI11',
+	Kildare: 'EI12',
+	Kilkenny: 'EI13',
+	Leitrim: 'EI14',
+	Laois: 'EI15',
+	Limerick: 'EI16',
+	Longford: 'EI18',
+	Louth: 'EI19',
+	Mayo: 'EI20',
+	Meath: 'EI21',
+	Monaghan: 'EI22',
+	Offaly: 'EI23',
+	Roscommon: 'EI24',
+	Sligo: 'EI25',
+	Tipperary: 'EI26',
+	Waterford: 'EI27',
+	Westmeath: 'EI29',
+	Wexford: 'EI30',
+	Wicklow: 'EI31' 
+};
 
 function getTidalRanges(beaches){
 		fetch(`${erddapBase}/erddap/tabledap/${tidePredictions}.json?${erddapStationId},${erddapSeaSurfaceHeight}&orderByMinMax(%22${erddapStationId},${erddapSeaSurfaceHeight}%22)`).
@@ -78,6 +108,7 @@ function getBeaches() {
     			return {
 					beachName: thisBeach.Name + ', ' + thisBeach.CountyName,
     				epaID: mapItem[2].replace('_MODELLED',''),
+					fipsCode: fips[thisBeach.CountyName],
 					miID: mapItem[2],
         			latitude: Number(mapItem[0]),
         			longitude: Number(mapItem[1])

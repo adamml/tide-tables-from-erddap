@@ -1,7 +1,7 @@
 // TODO: Add temperature data
 
 (function processTides(config, beaches){
-  moment.locale(config.locale);
+	moment.locale(config.locale);
 	
   var thisBeach = null;
   const queryParameters = new URLSearchParams(window.location.search);
@@ -32,15 +32,15 @@
   document.getElementById("valueSunrise").innerText = `${String(daylight.sunrise.getHours()).padStart(2, '0')}:${String(daylight.sunrise.getMinutes()).padStart(2, '0')}`;
   document.getElementById("valueSunset").innerText = `${String(daylight.sunset.getHours()).padStart(2, '0')}:${String(daylight.sunset.getMinutes()).padStart(2, '0')}`;
   document.getElementById("valueDusk").innerText = `${String(daylight.dusk.getHours()).padStart(2, '0')}:${String(daylight.dusk.getMinutes()).padStart(2, '0')}`;
-  console.log(daylight);
+  //console.log(daylight);
   
   	var p =  Promise.all([
 	  fetch(`https://api.beaches.ie/odata/beaches?$filter=Code%20eq%20%27${thisBeach.epaID}%27`),
-	  fetch(`https://erddap.marine.ie/erddap/tabledap/IMI-TidePrediction_epa.json?time%2Csea_surface_height&stationID=%22${thisBeach.miID}%22&time%3E=2021-01-4T21%3A00%3A00Z&time%3C=2021-01-6T03%3A00%3A00Z`)
+	  fetch(`https://erddap.marine.ie/erddap/tabledap/IMI-TidePrediction_epa.json?time%2Csea_surface_height&stationID=%22${thisBeach.miID}%22&time%3E=2021-01-4T21%3A00%3A00Z&time%3C=2021-01-6T03%3A00%3A00Z`),
 	  //fetch(`https://metwdb-openaccess.ichec.ie/metno-wdb2ts/locationforecast?lat=${thisBeach.latitude};long=${thisBeach.longitude}`,{
 	  //		headers: {'X-Requested-With': 'fetch'}
 	  //	}),
-	  // fetch('https://cors-anywhere.herokuapp.com/https://www.met.ie/warningsxml/rss.xml')
+	  fetch(`https://cors-anywhere.herokuapp.com/https://www.met.ie/Open_Data/json/warning_${thisBeach.fipsCode}.json`)
 	]).
 	then((responses) => {
 		return Promise.all(responses.map(function (response) {
@@ -53,10 +53,21 @@
 			return retVal;
 		}));
 	}).
-	then(writer => {
-		document.getElementById("waterQualityValue").innerText = writer[0].value[0].WaterQualityName;
-		document.getElementById("waterQualityLastUpdated").innerText = `Water quality data last updated on ${writer[0].value[0].LastUpdatedOn}`;
-		return writer;
+	then(waterQualityWriter => {
+		document.getElementById("waterQualityValue").innerText = waterQualityWriter[0].value[0].WaterQualityName;
+		document.getElementById("waterQualityLastUpdated").innerText = `Water quality data last updated on ${waterQualityWriter[0].value[0].LastUpdatedOn}`;
+		return waterQualityWriter;
+	}).
+	then(weatherWarnings => {
+		var weatherWarningLevel = null;
+		var weatherWarningText = "";
+		weatherWarnings[2].map(weatherWarning=>{
+			console.log(weatherWarning);
+			weatherWarningText = weatherWarningText.concat(`<i class="material-icons ${weatherWarning.level.toLowerCase()}">warning</i> <b>${weatherWarning.headline}</b>: ${weatherWarning.description} `);
+			return true;
+		});
+		document.getElementById('weatherWarnings').innerHTML = weatherWarningText;
+		return weatherWarnings;
 	}).
 	then(report => console.log(report));
   
@@ -139,25 +150,6 @@
 	xhr.send();
 	
   }
-
-  function jsonp(url) {
-    return new Promise(function(resolve, reject) {
-        let script = document.createElement('script')
-        const name = "_jsonp_" + Math.round(100000 * Math.random());
-        //url formatting
-        if (url.match(/\?/)) url += "&.jsonp="+name
-        else url += "?.jsonp="+name
-        script.src = url;
-		console.log(script);
-        window[name] = function(data) {
-            console.log(data);
-			resolve(data);
-            document.body.removeChild(script);
-            delete window[name];
-        }
-        document.body.appendChild(script);
-    });
-}
   
   function getDateRange(){
 	  moment();
